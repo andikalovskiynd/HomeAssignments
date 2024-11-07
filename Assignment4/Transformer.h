@@ -40,8 +40,15 @@ public:
     std::string attack();
 
     std::string useEnergySource();
-
+    
+    friend std::ostream& operator<<(std::ostream& stream, const Transformer& transformer);
 };
+
+    std::ostream& operator<<(std::ostream& stream, const Transformer& transformer)
+    {
+        stream << "Transformer (Name: " << transformer.name << ", Type: " << transformer.type << ", Strength: " << transformer.strength << ", Weapon: " << transformer.weapon << ", Energy: " << transformer.energy << ")";
+        return stream;
+    }
 
 #endif
 

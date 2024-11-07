@@ -15,6 +15,14 @@ private:
 public:
     std::string getType() const;
     int getPower() const;
+    
+    friend std::ostream& operator<<(std::ostream& stream, const Weapon& weapon);
 };
 
+std::ostream& operator<<(std::ostream& stream, const Weapon& weapon)
+    {
+        stream << "Weapon (Type: " << weapon.type << ", Power: " << weapon.power << ")";
+        return stream;
+    }
+    
 #endif
