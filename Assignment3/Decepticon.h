@@ -1,3 +1,7 @@
+/* Author: Andikalovskiy Nikita
+    e-mail: st131335@student.spbu.ru
+    Assignment3: Transformers classes
+ */
 #ifndef DECEPTICON_H
 #define DECEPTICON_H
 #include <string>
