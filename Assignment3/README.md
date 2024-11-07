@@ -7,20 +7,20 @@ st131335@student.spbu.ru
 Home assignment 3 - Transformers class hierarchy. 3 classes inheritants.
 ## Build
 
-### Demo application
+### Application
 
 make 
 
-### Demo tests suite
+### Tests suite
 
 make test
 
 ## Run
 
-### Demo application
+### Application
 
 ./transformer 
 
-### Demo tests suite
+### Tests suite
 
 ./test-transformer
