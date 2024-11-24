@@ -25,3 +25,5 @@ class Decepticon: public Transformer
 
     void setDamage(const int newDamage);
 };
+
+#endif
