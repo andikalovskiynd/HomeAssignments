@@ -10,11 +10,11 @@ A = ar
 
 AFLAGS = rsv
 
-CCXFLAGS = -I. -I/opt/homebrew/opt/googletest/include -std=c++17 -Wall -g -fPIC
+CCXFLAGS = -I. -I/usr/include/gtest -std=c++17 -Wall -g -fPIC
 
-LDXXFLAGS = $(CCXFLAGS) -L.
+LDXXFLAGS = $(CCXFLAGS) -L. 
 
-LDGTESTFLAGS = $(LDXXFLAGS) -L/opt/homebrew/opt/googletest/lib -lgtest -lgtest_main -lpthread
+LDGTESTFLAGS = $(LDXXFLAGS) -L/usr/lib -lgtest -lgtest_main -lpthread
 
 DEPS=$(wildcard *.h)
 
