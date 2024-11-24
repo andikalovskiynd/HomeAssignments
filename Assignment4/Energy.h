@@ -14,15 +14,7 @@ private:
 public:
     Energy(const std::string& sourceName);
     std::string getSource();
-    
-    friend std::ostream& operator<<(std::ostream& stream, const Energy& energy);
 };
-
-std::ostream& operator<<(std::ostream& stream, const Energy& energy)
-    {
-        stream << "Energy (Source: " << energy.sourceName << ")";
-        return stream;
-    }
 
 #endif
 

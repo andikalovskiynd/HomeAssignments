@@ -5,24 +5,23 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 #include <string>
-#include <iostream>
 
 class Weapon
 {
 private:
     std::string type;
     int power;
+
 public:
-    std::string getType() const;
-    int getPower() const;
+    Weapon(const std::string& type, int power) : type(type), power(power) {}
+    std::string getType() const { return type; }
+    int getPower() const { return power; }
+
+    Weapon() : type("Default"), power(0) {}
     
-    friend std::ostream& operator<<(std::ostream& stream, const Weapon& weapon);
+    std::string toString() const {
+        return "Weapon (Type: " + type + ", Power: " + std::to_string(power) + ")";
+    }
 };
 
-std::ostream& operator<<(std::ostream& stream, const Weapon& weapon)
-    {
-        stream << "Weapon (Type: " << weapon.type << ", Power: " << weapon.power << ")";
-        return stream;
-    }
-    
 #endif
