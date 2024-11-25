@@ -58,6 +58,15 @@ Transformer::Transformer(const std::string& name, const std::string& type, int s
         return "Using energy source " + (energy ? energy->getSource() : "Unknown");
     }
 
+    bool Transformer::operator<=(const Transformer& other) const {
+    return this->strength <= other.strength;
+}
+
+    bool Transformer::operator>=(const Transformer& comparable) const 
+    {
+    return this->strength >= comparable.strength;
+    } 
+
     std::string Transformer::display() const 
     {
     return "Transformer. Name: " + name +

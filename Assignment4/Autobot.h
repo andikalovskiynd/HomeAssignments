@@ -26,6 +26,9 @@ class Autobot: public Transformer
 
     void setBeauty(int newBeauty);
 
+    bool operator<=(const Autobot& comparable) const;
+    bool operator>=(const Autobot& comparable) const;
+
     std::string display() const; 
     friend std::ostream& operator<<(std::ostream& os, const Autobot& autobot);
 };

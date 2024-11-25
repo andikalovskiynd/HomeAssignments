@@ -35,10 +35,26 @@ void Maximus::setSpeed(int newSpeed)
     speed = newSpeed;
 }
 
+bool Maximus::operator<=(const Maximus& comparable) const 
+{
+if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+    return this->speed <= comparable.speed;
+}
+    return this->getStrengthHeritant() <= comparable.getStrengthHeritant();
+}
+
+bool Maximus::operator>=(const Maximus& comparable) const 
+{
+if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+    return this->speed >= comparable.speed;
+}
+return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
+}
+
 std::string Maximus::display() const {
     return "Maximus. Name: " + getName() +
            ", Type: " + getType() +
-           ", Strength: " + std::to_string(getStrength()) +
+           ", Strength: " + std::to_string(getStrengthHeritant()) +
            ", Vulnerability: " + vulnerability +
            ", Speed: " + std::to_string(speed) + ")";
 }

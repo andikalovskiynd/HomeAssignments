@@ -26,6 +26,10 @@ class Decepticon: public Transformer
 
     void setDamage(const int newDamage);
 
+    bool operator<=(const Decepticon& comparable) const;
+    bool operator>=(const Decepticon& comparable) const;
+
+
     std::string display() const; 
     friend std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon);
 };

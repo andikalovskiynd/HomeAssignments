@@ -42,6 +42,11 @@ public:
 
     std::string useEnergySource();
 
+    int getStrengthHeritant() const { return strength; }
+
+    bool operator<=(const Transformer& comparable) const;
+    bool operator>=(const Transformer& comparable) const;
+
     std::string display() const; 
     friend std::ostream& operator<<(std::ostream& os, const Transformer& transformer);
 };

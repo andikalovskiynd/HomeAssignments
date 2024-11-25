@@ -26,6 +26,9 @@ class Maximus: public Transformer
     
     void setSpeed(int newSpeed);
 
+    bool operator<=(const Maximus& comparable) const;
+    bool operator>=(const Maximus& comparable) const;
+
     std::string display() const; 
     friend std::ostream& operator<<(std::ostream& os, const Maximus& maximus);
 };

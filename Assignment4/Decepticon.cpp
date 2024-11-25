@@ -38,9 +38,25 @@ void Decepticon::setDamage(const int newDamage)
     {
     return "Decepticon. Name: " + getName() +
            ", Type: " + getType() +
-           ", Strength: " + std::to_string(getStrength()) +
+           ", Strength: " + std::to_string(getStrengthHeritant()) +
            ", Target: " + target +
            ", Damage: " + std::to_string(damage) + ")";
+    }
+
+    bool Decepticon::operator<=(const Decepticon& comparable) const 
+    {
+    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+        return this->damage <= comparable.damage;
+    }
+    return this->getStrengthHeritant() <= comparable.getStrengthHeritant();
+    }
+
+    bool Decepticon::operator>=(const Decepticon& comparable) const 
+    {
+    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+        return this->damage >= comparable.damage;
+    }
+    return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
     }
 
     std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon) 

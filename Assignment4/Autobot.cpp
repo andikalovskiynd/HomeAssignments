@@ -35,11 +35,27 @@
         beauty = newBeauty;
     }
 
+    bool Autobot::operator<=(const Autobot& comparable) const 
+    {
+    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+        return this->beauty <= comparable.beauty;
+    }
+    return this->getStrengthHeritant() <= comparable.getStrengthHeritant();
+    }
+
+    bool Autobot::operator>=(const Autobot& comparable) const 
+    {
+    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+        return this->beauty >= comparable.beauty;
+    }
+    return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
+    }
+
     std::string Autobot::display() const 
     {
     return "Autobot. Name: " + getName() +
            ", Type: " + getType() +
-           ", Strength: " + std::to_string(getStrength()) +
+           ", Strength: " + std::to_string(getStrengthHeritant()) +
            ", Friend: " + friendName +
            ", Beauty: " + std::to_string(beauty) + ")";
     }
