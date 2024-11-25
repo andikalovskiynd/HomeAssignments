@@ -16,6 +16,8 @@ class Maximus: public Transformer
     int speed;
 
     public:
+    Maximus();
+    Maximus(const std::string& name, const std::string& type);
     Maximus(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string vulnerability, int speed);
 
     std::string getVulnerability() const;

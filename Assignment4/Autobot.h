@@ -16,6 +16,8 @@ class Autobot: public Transformer
     int beauty;
 
     public:
+    Autobot(); 
+    Autobot(const std::string& name, const std::string& type); 
     Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty);
 
     std::string getFriend() const;

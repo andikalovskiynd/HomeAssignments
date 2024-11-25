@@ -8,13 +8,15 @@
 #include "Autobot.h"
 #include "Transformer.h"
 
-    Autobot::Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty)
-    : Transformer(name, type, strength, weapon, energy)
-    {
-        this->friendName = friendName;
-        this->beauty = beauty;
-    }
+Autobot::Autobot()
+    : Transformer("Default", "Autobot", 0, Weapon(), nullptr), friendName("Unknown"), beauty(0) {}
 
+Autobot::Autobot(const std::string& name, const std::string& type)
+    : Transformer(name, type, 0, Weapon(), nullptr), friendName("Unknown"), beauty(0) {}
+
+Autobot::Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty)
+    : Transformer(name, type, strength, weapon, energy), friendName(friendName), beauty(beauty) {}
+    
     std::string Autobot::getFriend() const
     {
         return friendName;

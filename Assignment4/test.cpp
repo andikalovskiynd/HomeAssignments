@@ -3,7 +3,6 @@
 #include "Decepticon.h"
 #include "Maximus.h"
 
-// <<
 TEST(AutobotTest, ConstructorAndOutput) 
 {
     Weapon weapon("Blaster", 100);
@@ -15,7 +14,6 @@ TEST(AutobotTest, ConstructorAndOutput)
     EXPECT_EQ(os.str(), "Autobot. Name: Optimus, Type: Autobot, Strength: 500, Friend: Bumblebee, Beauty: 10)");
 }
 
-//comparing Transformer
 TEST(ComparisonTest, TransformerComparison) {
     Weapon weapon("Blaster", 100);
     Energy energy("Energon");
@@ -43,7 +41,6 @@ TEST(ComparisonTest, AutobotComparison) {
     EXPECT_FALSE(a1 <= a3); 
 }
 
-// comparing Decepticon
 TEST(ComparisonTest, DecepticonComparison) {
     Weapon weapon("Cannon", 150);
     Energy energy("Dark Energon");
@@ -57,7 +54,6 @@ TEST(ComparisonTest, DecepticonComparison) {
     EXPECT_FALSE(d1 <= d3); 
 }
 
-// comparing Maximus
 TEST(ComparisonTest, MaximusComparison) {
     Weapon weapon("Sword", 80);
     Energy energy("Light Energon");
@@ -69,4 +65,123 @@ TEST(ComparisonTest, MaximusComparison) {
     EXPECT_TRUE(m2 >= m1); 
     EXPECT_TRUE(m3 <= m1); 
     EXPECT_FALSE(m1 <= m3); 
+}
+
+TEST(ConstructorTest, TransformerDefaultConstructor) {
+    Transformer t;
+    EXPECT_EQ(t.getName(), "Default");
+    EXPECT_EQ(t.getType(), "Unknown");
+    EXPECT_EQ(t.getStrength(), 0);
+    EXPECT_EQ(t.getWeapon().getType(), "Default");
+    EXPECT_EQ(t.getWeapon().getPower(), 0);
+    EXPECT_EQ(t.useEnergySource(), "Using energy source Unknown");
+}
+
+TEST(ConstructorTest, TransformerPartialConstructor) {
+    Transformer t("Optimus", "Autobot");
+    EXPECT_EQ(t.getName(), "Optimus");
+    EXPECT_EQ(t.getType(), "Autobot");
+    EXPECT_EQ(t.getStrength(), 0);
+    EXPECT_EQ(t.getWeapon().getType(), "Default");
+    EXPECT_EQ(t.getWeapon().getPower(), 0);
+    EXPECT_EQ(t.useEnergySource(), "Using energy source Unknown");
+}
+
+TEST(ConstructorTest, TransformerFullConstructor) {
+    Weapon weapon("Blaster", 100);
+    Energy energy("Energon");
+    Transformer t("Optimus", "Autobot", 500, weapon, &energy);
+    EXPECT_EQ(t.getName(), "Optimus");
+    EXPECT_EQ(t.getType(), "Autobot");
+    EXPECT_EQ(t.getStrength(), 500);
+    EXPECT_EQ(t.getWeapon().getType(), "Blaster");
+    EXPECT_EQ(t.getWeapon().getPower(), 100);
+    EXPECT_EQ(t.useEnergySource(), "Using energy source Energon");
+}
+
+TEST(ConstructorTest, AutobotDefaultConstructor) {
+    Autobot a;
+    EXPECT_EQ(a.getName(), "Default");
+    EXPECT_EQ(a.getType(), "Autobot");
+    EXPECT_EQ(a.getStrength(), 0);
+    EXPECT_EQ(a.getFriend(), "Unknown");
+    EXPECT_EQ(a.getBeauty(), 0);
+}
+
+TEST(ConstructorTest, AutobotPartialConstructor) {
+    Autobot a("Bumblebee", "Autobot");
+    EXPECT_EQ(a.getName(), "Bumblebee");
+    EXPECT_EQ(a.getType(), "Autobot");
+    EXPECT_EQ(a.getStrength(), 0);
+    EXPECT_EQ(a.getFriend(), "Unknown");
+    EXPECT_EQ(a.getBeauty(), 0);
+}
+
+TEST(ConstructorTest, AutobotFullConstructor) {
+    Weapon weapon("Blaster", 100);
+    Energy energy("Energon");
+    Autobot a("Optimus", "Autobot", 500, weapon, &energy, "Bumblebee", 10);
+    EXPECT_EQ(a.getName(), "Optimus");
+    EXPECT_EQ(a.getType(), "Autobot");
+    EXPECT_EQ(a.getStrength(), 500);
+    EXPECT_EQ(a.getFriend(), "Bumblebee");
+    EXPECT_EQ(a.getBeauty(), 10);
+}
+
+TEST(ConstructorTest, DecepticonDefaultConstructor) {
+    Decepticon d;
+    EXPECT_EQ(d.getName(), "Default");
+    EXPECT_EQ(d.getType(), "Decepticon");
+    EXPECT_EQ(d.getStrength(), 0);
+    EXPECT_EQ(d.getTarget(), "Unknown");
+    EXPECT_EQ(d.getDamage(), 0);
+}
+
+TEST(ConstructorTest, DecepticonPartialConstructor) {
+    Decepticon d("Starscream", "Decepticon");
+    EXPECT_EQ(d.getName(), "Starscream");
+    EXPECT_EQ(d.getType(), "Decepticon");
+    EXPECT_EQ(d.getStrength(), 0);
+    EXPECT_EQ(d.getTarget(), "Unknown");
+    EXPECT_EQ(d.getDamage(), 0);
+}
+
+TEST(ConstructorTest, DecepticonFullConstructor) {
+    Weapon weapon("Cannon", 150);
+    Energy energy("Dark Energon");
+    Decepticon d("Megatron", "Decepticon", 600, weapon, &energy, "Optimus", 200);
+    EXPECT_EQ(d.getName(), "Megatron");
+    EXPECT_EQ(d.getType(), "Decepticon");
+    EXPECT_EQ(d.getStrength(), 600);
+    EXPECT_EQ(d.getTarget(), "Optimus");
+    EXPECT_EQ(d.getDamage(), 200);
+}
+
+TEST(ConstructorTest, MaximusDefaultConstructor) {
+    Maximus m;
+    EXPECT_EQ(m.getName(), "Default");
+    EXPECT_EQ(m.getType(), "Autobot");
+    EXPECT_EQ(m.getStrength(), 0);
+    EXPECT_EQ(m.getVulnerability(), "Unknown");
+    EXPECT_EQ(m.getSpeed(), 0);
+}
+
+TEST(ConstructorTest, MaximusPartialConstructor) {
+    Maximus m("Maximus Prime", "Autobot");
+    EXPECT_EQ(m.getName(), "Maximus Prime");
+    EXPECT_EQ(m.getType(), "Autobot");
+    EXPECT_EQ(m.getStrength(), 0);
+    EXPECT_EQ(m.getVulnerability(), "Unknown");
+    EXPECT_EQ(m.getSpeed(), 0);
+}
+
+TEST(ConstructorTest, MaximusFullConstructor) {
+    Weapon weapon("Sword", 80);
+    Energy energy("Light Energon");
+    Maximus m("Maximus", "Autobot", 700, weapon, &energy, "Fire", 100);
+    EXPECT_EQ(m.getName(), "Maximus");
+    EXPECT_EQ(m.getType(), "Autobot");
+    EXPECT_EQ(m.getStrength(), 700);
+    EXPECT_EQ(m.getVulnerability(), "Fire");
+    EXPECT_EQ(m.getSpeed(), 100);
 }

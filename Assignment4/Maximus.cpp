@@ -8,12 +8,14 @@
 #include "Maximus.h"
 #include "Transformer.h"
 
+Maximus::Maximus()
+    : Transformer("Default", "Autobot", 0, Weapon(), nullptr), vulnerability("Unknown"), speed(0) {}
+
+Maximus::Maximus(const std::string& name, const std::string& type)
+    : Transformer(name, type, 0, Weapon(), nullptr), vulnerability("Unknown"), speed(0) {}
+
 Maximus::Maximus(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string vulnerability, int speed)
-: Transformer(name, type, strength, weapon, energy)
-{
-    this->vulnerability = vulnerability;
-    this->speed = speed;
-}
+    : Transformer(name, type, strength, weapon, energy), vulnerability(vulnerability), speed(speed) {}
 
 std::string Maximus::getVulnerability() const
 {

@@ -20,7 +20,9 @@ private:
     Energy* energy;
 
 public:
-    Transformer(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy);
+    Transformer();
+    Transformer(const std::string& name, const std::string& type);
+    Transformer(const std::string& name, const std::string& type, int strength, const Weapon& weapon, Energy* energy);
 
     ~Transformer() {}
 
@@ -43,6 +45,9 @@ public:
     std::string useEnergySource();
 
     int getStrengthHeritant() const { return strength; }
+    std::string getNameHeritant() const { return name; }
+    std::string getTypeHeritant() const { return type; }
+
 
     bool operator<=(const Transformer& comparable) const;
     bool operator>=(const Transformer& comparable) const;

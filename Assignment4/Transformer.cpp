@@ -7,15 +7,16 @@
 #include <iostream>
 #include "Transformer.h"
 
-Transformer::Transformer(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy)
-{
-    this->name = name;
-    this->type = type;
-    this->strength = strength;
-    this->weapon = weapon;
-    this->energy = energy;
-}
-    
+
+Transformer::Transformer()
+    : name("Default"), type("Unknown"), strength(0), weapon(Weapon()), energy(nullptr) {}
+
+Transformer::Transformer(const std::string& name, const std::string& type)
+    : name(name), type(type), strength(0), weapon(Weapon()), energy(nullptr) {}
+
+Transformer::Transformer(const std::string& name, const std::string& type, int strength, const Weapon& weapon, Energy* energy)
+    : name(name), type(type), strength(strength), weapon(weapon), energy(energy) {}
+
     std::string Transformer::getName() const
     {
         return name;

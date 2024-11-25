@@ -16,6 +16,8 @@ class Decepticon: public Transformer
     int damage;
 
     public:
+    Decepticon();
+    Decepticon(const std::string& name, const std::string& type);
     Decepticon(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string target, int damage);
 
     std::string getTarget() const;

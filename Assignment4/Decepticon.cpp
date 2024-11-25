@@ -8,12 +8,14 @@
 #include "Decepticon.h"
 #include "Transformer.h"
 
+Decepticon::Decepticon()
+    : Transformer("Default", "Decepticon", 0, Weapon(), nullptr), target("Unknown"), damage(0) {}
+
+Decepticon::Decepticon(const std::string& name, const std::string& type)
+    : Transformer(name, type, 0, Weapon(), nullptr), target("Unknown"), damage(0) {}
+
 Decepticon::Decepticon(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string target, int damage)
-: Transformer(name, type, strength, weapon, energy)
-{
-    this->target = target;
-    this->damage = damage;
-}
+    : Transformer(name, type, strength, weapon, energy), target(target), damage(damage) {}
 
 std::string Decepticon::getTarget() const
 {
