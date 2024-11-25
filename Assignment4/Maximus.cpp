@@ -55,10 +55,10 @@ return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
 
 std::string Maximus::display() const {
     return "Maximus. Name: " + getName() +
-           ", Type: " + getType() +
-           ", Strength: " + std::to_string(getStrengthHeritant()) +
-           ", Vulnerability: " + vulnerability +
-           ", Speed: " + std::to_string(speed) + ")";
+       ", Type: " + getType() +
+       ", Strength: " + std::to_string(getStrengthHeritant()) +
+       ", Vulnerability: " + vulnerability +
+       ", Speed: " + std::to_string(speed) + ")";
 }
 
 std::ostream& operator<<(std::ostream& os, const Maximus& maximus) {

@@ -27,15 +27,12 @@ public:
     ~Transformer() {}
 
     std::string getName() const;
-
     void setName(std::string& newName);
         
     std::string getType() const;
-
     void setType(std::string& newType);
 
     int getStrength() const;
-
     void setStrength(int newStrength);
 
     Weapon getWeapon() const;
@@ -47,7 +44,6 @@ public:
     int getStrengthHeritant() const { return strength; }
     std::string getNameHeritant() const { return name; }
     std::string getTypeHeritant() const { return type; }
-
 
     bool operator<=(const Transformer& comparable) const;
     bool operator>=(const Transformer& comparable) const;

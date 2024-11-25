@@ -21,11 +21,9 @@ class Autobot: public Transformer
     Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty);
 
     std::string getFriend() const;
-
     void setFriend(const std::string newFriendName);
 
     int getBeauty() const;
-
     void setBeauty(int newBeauty);
 
     bool operator<=(const Autobot& comparable) const;

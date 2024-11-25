@@ -21,11 +21,9 @@ class Decepticon: public Transformer
     Decepticon(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string target, int damage);
 
     std::string getTarget() const;
-
     void setTarget(const std::string newTarget);
 
     int getDamage() const;
-
     void setDamage(const int newDamage);
 
     bool operator<=(const Decepticon& comparable) const;

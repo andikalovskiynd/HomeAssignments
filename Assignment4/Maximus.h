@@ -21,11 +21,9 @@ class Maximus: public Transformer
     Maximus(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string vulnerability, int speed);
 
     std::string getVulnerability() const;
-
     void setVulnerability(const std::string newVulnerability);
 
     int getSpeed() const;
-    
     void setSpeed(int newSpeed);
 
     bool operator<=(const Maximus& comparable) const;

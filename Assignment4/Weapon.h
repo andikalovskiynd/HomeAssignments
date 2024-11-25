@@ -21,7 +21,8 @@ public:
 
     Weapon() : type("Default"), power(0) {}
     
-    std::string display() const {
+    std::string display() const 
+    {
         return "Weapon (Type: " + type + ", Power: " + std::to_string(power) + ")";
     }
 };

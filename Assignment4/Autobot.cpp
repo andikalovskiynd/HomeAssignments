@@ -17,53 +17,53 @@ Autobot::Autobot(const std::string& name, const std::string& type)
 Autobot::Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty)
     : Transformer(name, type, strength, weapon, energy), friendName(friendName), beauty(beauty) {}
     
-    std::string Autobot::getFriend() const
-    {
-        return friendName;
-    }
+std::string Autobot::getFriend() const
+{
+    return friendName;
+}
 
-    void Autobot::setFriend(const std::string newFriendName)
-    {
-        friendName = newFriendName;
-    }
+void Autobot::setFriend(const std::string newFriendName)
+{
+    friendName = newFriendName;
+}
 
-    int Autobot::getBeauty() const
-    {
-        return beauty;
-    }
+int Autobot::getBeauty() const
+{
+    return beauty;
+}
 
-    void Autobot::setBeauty(int newBeauty)
-    {
-        beauty = newBeauty;
-    }
+void Autobot::setBeauty(int newBeauty)
+{
+    beauty = newBeauty;
+}
 
-    bool Autobot::operator<=(const Autobot& comparable) const 
-    {
-    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
-        return this->beauty <= comparable.beauty;
-    }
-    return this->getStrengthHeritant() <= comparable.getStrengthHeritant();
-    }
+bool Autobot::operator<=(const Autobot& comparable) const 
+{
+if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+    return this->beauty <= comparable.beauty;
+}
+return this->getStrengthHeritant() <= comparable.getStrengthHeritant();
+}
 
-    bool Autobot::operator>=(const Autobot& comparable) const 
-    {
-    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
-        return this->beauty >= comparable.beauty;
-    }
-    return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
-    }
+bool Autobot::operator>=(const Autobot& comparable) const 
+{
+if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+    return this->beauty >= comparable.beauty;
+}
+return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
+}
 
-    std::string Autobot::display() const 
-    {
-    return "Autobot. Name: " + getName() +
-           ", Type: " + getType() +
-           ", Strength: " + std::to_string(getStrengthHeritant()) +
-           ", Friend: " + friendName +
-           ", Beauty: " + std::to_string(beauty) + ")";
-    }
+std::string Autobot::display() const 
+{
+return "Autobot. Name: " + getName() +
+    ", Type: " + getType() +
+    ", Strength: " + std::to_string(getStrengthHeritant()) +
+    ", Friend: " + friendName +
+    ", Beauty: " + std::to_string(beauty) + ")";
+}
 
-    std::ostream& operator<<(std::ostream& os, const Autobot& autobot) 
-    {
-    os << autobot.display();
-    return os;
-    }
+std::ostream& operator<<(std::ostream& os, const Autobot& autobot) 
+{
+os << autobot.display();
+return os;
+}
