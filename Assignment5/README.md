@@ -1,4 +1,4 @@
-# Assignment 4
+# Assignment 5
 ## Author
 Andikalovskiy Nikita Dmitrievich 24.B82-mm
 
@@ -6,7 +6,7 @@ Andikalovskiy Nikita Dmitrievich 24.B82-mm
 st131335@student.spbu.ru
 
 ## Description
-Home assignment 4 - For classes from assignment 3: << realisation, operators of comparsion, overload of constructor, tests
+Home assignment 5 - For classes from assignment 4: create and test 3 virtual methods
 
 ## Build
 make
