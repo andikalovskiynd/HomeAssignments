@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #include <iostream>
 #include <string>
 #include "Autobot.h"
@@ -32,4 +33,19 @@
     void Autobot::setBeauty(int newBeauty)
     {
         beauty = newBeauty;
+    }
+
+    std::string Autobot::display() const 
+    {
+    return "Autobot. Name: " + getName() +
+           ", Type: " + getType() +
+           ", Strength: " + std::to_string(getStrength()) +
+           ", Friend: " + friendName +
+           ", Beauty: " + std::to_string(beauty) + ")";
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Autobot& autobot) 
+    {
+    os << autobot.display();
+    return os;
     }

@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #ifndef TRANSFORMER_H
 #define TRANSFORMER_H
 #include "Weapon.h"
@@ -41,6 +42,8 @@ public:
 
     std::string useEnergySource();
 
+    std::string display() const; 
+    friend std::ostream& operator<<(std::ostream& os, const Transformer& transformer);
 };
 
 #endif

@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #ifndef MAXIMUS_H
 #define MAXIMUS_H
 #include <string>
@@ -24,6 +25,9 @@ class Maximus: public Transformer
     int getSpeed() const;
     
     void setSpeed(int newSpeed);
+
+    std::string display() const; 
+    friend std::ostream& operator<<(std::ostream& os, const Maximus& maximus);
 };
 
 #endif

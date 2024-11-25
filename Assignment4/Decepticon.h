@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #ifndef DECEPTICON_H
 #define DECEPTICON_H
 #include <string>
@@ -24,6 +25,9 @@ class Decepticon: public Transformer
     int getDamage() const;
 
     void setDamage(const int newDamage);
+
+    std::string display() const; 
+    friend std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon);
 };
 
 #endif

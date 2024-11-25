@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #include <string>
 #include <iostream>
 #include "Transformer.h"
@@ -55,4 +56,19 @@ Transformer::Transformer(const std::string& name, const std::string& type, int s
     std::string Transformer::useEnergySource()
     {
         return "Using energy source " + (energy ? energy->getSource() : "Unknown");
+    }
+
+    std::string Transformer::display() const 
+    {
+    return "Transformer. Name: " + name +
+           ", Type: " + type +
+           ", Strength: " + std::to_string(strength) +
+           ", Weapon: " + weapon.display() +
+           ", Energy: " + (energy ? energy->getSource() : "None") + ")";
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Transformer& transformer) 
+    {
+    os << transformer.display();
+    return os;
     }

@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #ifndef WEAPON_H
 #define WEAPON_H
 #include <string>
@@ -19,7 +20,7 @@ public:
 
     Weapon() : type("Default"), power(0) {}
     
-    std::string toString() const {
+    std::string display() const {
         return "Weapon (Type: " + type + ", Power: " + std::to_string(power) + ")";
     }
 };

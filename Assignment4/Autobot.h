@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #ifndef AUTOBOT_H
 #define AUTOBOT_H
 #include <string>
@@ -24,6 +25,9 @@ class Autobot: public Transformer
     int getBeauty() const;
 
     void setBeauty(int newBeauty);
+
+    std::string display() const; 
+    friend std::ostream& operator<<(std::ostream& os, const Autobot& autobot);
 };
 
 #endif

@@ -1,7 +1,8 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment3: Transformers classes
+    Assignment4: Extended 3rd assignment
  */
+
 #include <iostream>
 #include <string>
 #include "Maximus.h"
@@ -32,4 +33,17 @@ int Maximus::getSpeed() const
 void Maximus::setSpeed(int newSpeed)
 {
     speed = newSpeed;
+}
+
+std::string Maximus::display() const {
+    return "Maximus. Name: " + getName() +
+           ", Type: " + getType() +
+           ", Strength: " + std::to_string(getStrength()) +
+           ", Vulnerability: " + vulnerability +
+           ", Speed: " + std::to_string(speed) + ")";
+}
+
+std::ostream& operator<<(std::ostream& os, const Maximus& maximus) {
+    os << maximus.display();
+    return os;
 }
