@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #include <iostream>
@@ -11,8 +11,8 @@
 Decepticon::Decepticon()
     : Transformer("Default", "Decepticon", 0, Weapon(), nullptr), target("Unknown"), damage(0) {}
 
-Decepticon::Decepticon(const std::string& name, const std::string& type)
-    : Transformer(name, type, 0, Weapon(), nullptr), target("Unknown"), damage(0) {}
+Decepticon::Decepticon(const std::string& name)
+    : Transformer(name, "Decepticon", 0, Weapon(), nullptr), target("Unknown"), damage(0) {}
 
 Decepticon::Decepticon(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string target, int damage)
     : Transformer(name, type, strength, weapon, energy), target(target), damage(damage) {}

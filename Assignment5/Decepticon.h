@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #ifndef DECEPTICON_H
@@ -17,8 +17,20 @@ class Decepticon: public Transformer
 
     public:
     Decepticon();
-    Decepticon(const std::string& name, const std::string& type);
+    Decepticon(const std::string& name);
     Decepticon(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string target, int damage);
+
+    void transform() const override {
+        std::cout << "Decepticon::transform called from " << getNameHeritant() << std::endl;
+    }
+
+    void openFire() const override {
+        std::cout << "Decepticon::openFire called from " << getNameHeritant() << std::endl;
+    }
+
+    void ulta() const override {
+        std::cout << "Decepticon::ulta called from " << getNameHeritant() << std::endl;
+    }
 
     std::string getTarget() const;
     void setTarget(const std::string newTarget);

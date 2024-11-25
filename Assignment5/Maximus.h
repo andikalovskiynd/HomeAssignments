@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #ifndef MAXIMUS_H

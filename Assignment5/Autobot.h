@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #ifndef AUTOBOT_H
@@ -17,8 +17,20 @@ class Autobot: public Transformer
 
     public:
     Autobot(); 
-    Autobot(const std::string& name, const std::string& type); 
+    Autobot(const std::string& name); 
     Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty);
+
+    void transform() const override {
+        std::cout << "Autobot::transform called from " << getNameHeritant() << std::endl;
+    }
+
+    void openFire() const override {
+        std::cout << "Autobot::openFire called from " << getNameHeritant() << std::endl;
+    }
+
+    void ulta() const override {
+        std::cout << "Autobot::ulta called from " << getNameHeritant() << std::endl;
+    }
 
     std::string getFriend() const;
     void setFriend(const std::string newFriendName);

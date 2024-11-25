@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #include <iostream>
@@ -11,8 +11,8 @@
 Autobot::Autobot()
     : Transformer("Default", "Autobot", 0, Weapon(), nullptr), friendName("Unknown"), beauty(0) {}
 
-Autobot::Autobot(const std::string& name, const std::string& type)
-    : Transformer(name, type, 0, Weapon(), nullptr), friendName("Unknown"), beauty(0) {}
+Autobot::Autobot(const std::string& name)
+    : Transformer(name, "Autobot", 0, Weapon(), nullptr), friendName("Unknown"), beauty(0) {}
 
 Autobot::Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty)
     : Transformer(name, type, strength, weapon, energy), friendName(friendName), beauty(beauty) {}

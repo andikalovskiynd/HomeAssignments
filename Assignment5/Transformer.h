@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #ifndef TRANSFORMER_H
@@ -21,10 +21,23 @@ private:
 
 public:
     Transformer();
+    Transformer(const std::string& name);
     Transformer(const std::string& name, const std::string& type);
     Transformer(const std::string& name, const std::string& type, int strength, const Weapon& weapon, Energy* energy);
 
-    ~Transformer() {}
+    virtual ~Transformer() {}
+
+    virtual void transform() const {
+        std::cout << "Transformer::transform called from " << name << std::endl;
+    }
+
+    virtual void openFire() const {
+        std::cout << "Transformer::openFire called from " << name << std::endl;
+    }
+
+    virtual void ulta() const {
+        std::cout << "Transformer::ulta called from " << name << std::endl;
+    }
 
     std::string getName() const;
     void setName(std::string& newName);
@@ -43,7 +56,6 @@ public:
 
     int getStrengthHeritant() const { return strength; }
     std::string getNameHeritant() const { return name; }
-    std::string getTypeHeritant() const { return type; }
 
     bool operator<=(const Transformer& comparable) const;
     bool operator>=(const Transformer& comparable) const;

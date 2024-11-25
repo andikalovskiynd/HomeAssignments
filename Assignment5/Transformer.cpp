@@ -1,6 +1,6 @@
 /* Author: Andikalovskiy Nikita
     e-mail: st131335@student.spbu.ru
-    Assignment4: Extended 3rd assignment
+    Assignment5: 3 virtual methods, extended testing
  */
 
 #include <string>
@@ -10,6 +10,9 @@
 
 Transformer::Transformer()
     : name("Default"), type("Unknown"), strength(0), weapon(Weapon()), energy(nullptr) {}
+
+Transformer::Transformer(const std::string& name)
+    : name(name), type("Unknown"), strength(0), weapon(Weapon()), energy(nullptr) {}
 
 Transformer::Transformer(const std::string& name, const std::string& type)
     : name(name), type(type), strength(0), weapon(Weapon()), energy(nullptr) {}
