@@ -8,11 +8,10 @@
 #include <string>
 #include <iostream>
 
-class Energy
-{
-private:
+class Energy {
+  private:
     std::string sourceName;
-public:
+  public:
     Energy(const std::string& sourceName);
     std::string getSource();
 

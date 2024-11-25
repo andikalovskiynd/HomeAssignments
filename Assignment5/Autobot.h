@@ -9,15 +9,14 @@
 #include <iostream>
 #include "Transformer.h"
 
-class Autobot: public Transformer
-{
-    private:
+class Autobot: public Transformer {
+  private:
     std::string friendName;
     int beauty;
 
-    public:
-    Autobot(); 
-    Autobot(const std::string& name); 
+  public:
+    Autobot();
+    Autobot(const std::string& name);
     Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty);
 
     void transform() const override {
@@ -41,7 +40,7 @@ class Autobot: public Transformer
     bool operator<=(const Autobot& comparable) const;
     bool operator>=(const Autobot& comparable) const;
 
-    std::string display() const; 
+    std::string display() const;
     friend std::ostream& operator<<(std::ostream& os, const Autobot& autobot);
 };
 

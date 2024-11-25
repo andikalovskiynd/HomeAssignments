@@ -8,8 +8,7 @@
 #include "Autobot.h"
 #include "Decepticon.h"
 
-int main()
-{
+int main() {
     // Direct test
     Autobot a("Optimus Prime");
     Decepticon d("Megatron");
@@ -56,7 +55,7 @@ int main()
 
     // Vector test
     std::vector<Transformer*> transformers;
-    
+
     for (int i = 0; i < 3; ++i) {
         transformers.push_back(new Transformer("Transformer" + std::to_string(i + 1) ) );
         transformers.push_back(new Autobot("Autobot" + std::to_string(i + 1) ) );

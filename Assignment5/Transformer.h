@@ -10,16 +10,15 @@
 #include <string>
 #include <iostream>
 
-class Transformer
-{
-private:
+class Transformer {
+  private:
     std::string name;
     std::string type;
     int strength;
     Weapon weapon;
     Energy* energy;
 
-public:
+  public:
     Transformer();
     Transformer(const std::string& name);
     Transformer(const std::string& name, const std::string& type);
@@ -41,7 +40,7 @@ public:
 
     std::string getName() const;
     void setName(std::string& newName);
-        
+
     std::string getType() const;
     void setType(std::string& newType);
 
@@ -54,13 +53,17 @@ public:
 
     std::string useEnergySource();
 
-    int getStrengthHeritant() const { return strength; }
-    std::string getNameHeritant() const { return name; }
+    int getStrengthHeritant() const {
+        return strength;
+    }
+    std::string getNameHeritant() const {
+        return name;
+    }
 
     bool operator<=(const Transformer& comparable) const;
     bool operator>=(const Transformer& comparable) const;
 
-    std::string display() const; 
+    std::string display() const;
     friend std::ostream& operator<<(std::ostream& os, const Transformer& transformer);
 };
 
