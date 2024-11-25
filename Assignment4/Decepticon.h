@@ -9,13 +9,12 @@
 #include <iostream>
 #include "Transformer.h"
 
-class Decepticon: public Transformer
-{
-    private:
+class Decepticon: public Transformer {
+  private:
     std::string target;
     int damage;
 
-    public:
+  public:
     Decepticon();
     Decepticon(const std::string& name, const std::string& type);
     Decepticon(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string target, int damage);
@@ -30,7 +29,7 @@ class Decepticon: public Transformer
     bool operator>=(const Decepticon& comparable) const;
 
 
-    std::string display() const; 
+    std::string display() const;
     friend std::ostream& operator<<(std::ostream& os, const Decepticon& decepticon);
 };
 

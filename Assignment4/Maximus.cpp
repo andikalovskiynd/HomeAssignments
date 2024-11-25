@@ -17,48 +17,42 @@ Maximus::Maximus(const std::string& name, const std::string& type)
 Maximus::Maximus(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string vulnerability, int speed)
     : Transformer(name, type, strength, weapon, energy), vulnerability(vulnerability), speed(speed) {}
 
-std::string Maximus::getVulnerability() const
-{
+std::string Maximus::getVulnerability() const {
     return vulnerability;
 }
 
-void Maximus::setVulnerability(const std::string newVulnerability)
-{
+void Maximus::setVulnerability(const std::string newVulnerability) {
     vulnerability = newVulnerability;
 }
 
-int Maximus::getSpeed() const
-{
+int Maximus::getSpeed() const {
     return speed;
 }
 
-void Maximus::setSpeed(int newSpeed)
-{
+void Maximus::setSpeed(int newSpeed) {
     speed = newSpeed;
 }
 
-bool Maximus::operator<=(const Maximus& comparable) const 
-{
-if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
-    return this->speed <= comparable.speed;
-}
+bool Maximus::operator<=(const Maximus& comparable) const {
+    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+        return this->speed <= comparable.speed;
+    }
     return this->getStrengthHeritant() <= comparable.getStrengthHeritant();
 }
 
-bool Maximus::operator>=(const Maximus& comparable) const 
-{
-if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
-    return this->speed >= comparable.speed;
-}
-return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
+bool Maximus::operator>=(const Maximus& comparable) const {
+    if (this->getStrengthHeritant() == comparable.getStrengthHeritant()) {
+        return this->speed >= comparable.speed;
+    }
+    return this->getStrengthHeritant() >= comparable.getStrengthHeritant();
 }
 
 std::string Maximus::display() const {
     return "Maximus. Name: " + getName() +
-       ", Type: " + getType() +
-       ", Strength: " + std::to_string(getStrengthHeritant()) +
-       ", Vulnerability: " + vulnerability +
-       ", Speed: " + std::to_string(speed) + ")";
+           ", Type: " + getType() +
+           ", Strength: " + std::to_string(getStrengthHeritant()) +
+           ", Vulnerability: " + vulnerability +
+           ", Speed: " + std::to_string(speed) + ")";
 }
 
 std::ostream& operator<<(std::ostream& os, const Maximus& maximus) {

@@ -17,46 +17,37 @@ Transformer::Transformer(const std::string& name, const std::string& type)
 Transformer::Transformer(const std::string& name, const std::string& type, int strength, const Weapon& weapon, Energy* energy)
     : name(name), type(type), strength(strength), weapon(weapon), energy(energy) {}
 
-std::string Transformer::getName() const
-{
+std::string Transformer::getName() const {
     return name;
 }
-void Transformer::setName(std::string& newName)
-{
+void Transformer::setName(std::string& newName) {
     name = newName;
 }
-    
-std::string Transformer::getType() const
-{
+
+std::string Transformer::getType() const {
     return type;
 }
-void Transformer::setType(std::string& newType)
-{
-       type = newType;
+void Transformer::setType(std::string& newType) {
+    type = newType;
 }
 
-int Transformer::getStrength() const
-{
+int Transformer::getStrength() const {
     return strength;
 }
 
-void Transformer::setStrength(int newStrength)
-{
+void Transformer::setStrength(int newStrength) {
     strength = newStrength;
 }
 
-Weapon Transformer::getWeapon() const
-{
+Weapon Transformer::getWeapon() const {
     return weapon;
 }
 
-std::string Transformer::attack()
-{
+std::string Transformer::attack() {
     return "Attacking with " + weapon.getType();
 }
 
-std::string Transformer::useEnergySource()
-{
+std::string Transformer::useEnergySource() {
     return "Using energy source " + (energy ? energy->getSource() : "Unknown");
 }
 
@@ -64,22 +55,19 @@ bool Transformer::operator<=(const Transformer& other) const {
     return this->strength <= other.strength;
 }
 
-bool Transformer::operator>=(const Transformer& comparable) const 
-{
+bool Transformer::operator>=(const Transformer& comparable) const {
     return this->strength >= comparable.strength;
-} 
-
-std::string Transformer::display() const 
-{
-    return "Transformer. Name: " + name +
-    ", Type: " + type +
-    ", Strength: " + std::to_string(strength) +
-    ", Weapon: " + weapon.display() +
-    ", Energy: " + (energy ? energy->getSource() : "None") + ")";
 }
 
-std::ostream& operator<<(std::ostream& os, const Transformer& transformer) 
-{
+std::string Transformer::display() const {
+    return "Transformer. Name: " + name +
+           ", Type: " + type +
+           ", Strength: " + std::to_string(strength) +
+           ", Weapon: " + weapon.display() +
+           ", Energy: " + (energy ? energy->getSource() : "None") + ")";
+}
+
+std::ostream& operator<<(std::ostream& os, const Transformer& transformer) {
     os << transformer.display();
     return os;
 }

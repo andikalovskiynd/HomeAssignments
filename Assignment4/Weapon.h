@@ -7,22 +7,24 @@
 #define WEAPON_H
 #include <string>
 
-class Weapon
-{
-private:
+class Weapon {
+  private:
     std::string type;
     int power;
 
-public:
+  public:
     Weapon(const std::string& type, int power) : type(type), power(power) {}
 
-    std::string getType() const { return type; }
-    int getPower() const { return power; }
+    std::string getType() const {
+        return type;
+    }
+    int getPower() const {
+        return power;
+    }
 
     Weapon() : type("Default"), power(0) {}
-    
-    std::string display() const 
-    {
+
+    std::string display() const {
         return "Weapon (Type: " + type + ", Power: " + std::to_string(power) + ")";
     }
 };

@@ -9,13 +9,12 @@
 #include <iostream>
 #include "Transformer.h"
 
-class Maximus: public Transformer
-{
-    private:
+class Maximus: public Transformer {
+  private:
     std::string vulnerability;
     int speed;
 
-    public:
+  public:
     Maximus();
     Maximus(const std::string& name, const std::string& type);
     Maximus(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string vulnerability, int speed);
@@ -29,7 +28,7 @@ class Maximus: public Transformer
     bool operator<=(const Maximus& comparable) const;
     bool operator>=(const Maximus& comparable) const;
 
-    std::string display() const; 
+    std::string display() const;
     friend std::ostream& operator<<(std::ostream& os, const Maximus& maximus);
 };
 
