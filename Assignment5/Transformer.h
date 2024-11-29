@@ -5,68 +5,58 @@
 
 #ifndef TRANSFORMER_H
 #define TRANSFORMER_H
-#include "Weapon.h"
-#include "Energy.h"
-#include <string>
 #include <iostream>
+#include <string>
+
+#include "Energy.h"
+#include "Weapon.h"
 
 class Transformer {
-  private:
-    std::string name;
-    std::string type;
-    int strength;
-    Weapon weapon;
-    Energy* energy;
+ private:
+  std::string name;
+  std::string type;
+  int strength;
+  Weapon weapon;
+  Energy* energy;
 
-  public:
-    Transformer();
-    Transformer(const std::string& name);
-    Transformer(const std::string& name, const std::string& type);
-    Transformer(const std::string& name, const std::string& type, int strength, const Weapon& weapon, Energy* energy);
+ public:
+  Transformer();
+  Transformer(const std::string& name);
+  Transformer(const std::string& name, const std::string& type);
+  Transformer(const std::string& name, const std::string& type, int strength,
+              const Weapon& weapon, Energy* energy);
 
-    virtual ~Transformer() {}
+  virtual ~Transformer() {}
 
-    virtual void transform() const {
-        std::cout << "Transformer::transform called from " << name << std::endl;
-    }
+  virtual void transform() const;
+  virtual void openFire() const;
+  virtual void ulta() const;
 
-    virtual void openFire() const {
-        std::cout << "Transformer::openFire called from " << name << std::endl;
-    }
+  std::string getName() const;
+  void setName(std::string& newName);
 
-    virtual void ulta() const {
-        std::cout << "Transformer::ulta called from " << name << std::endl;
-    }
+  std::string getType() const;
+  void setType(std::string& newType);
 
-    std::string getName() const;
-    void setName(std::string& newName);
+  int getStrength() const;
+  void setStrength(int newStrength);
 
-    std::string getType() const;
-    void setType(std::string& newType);
+  Weapon getWeapon() const;
 
-    int getStrength() const;
-    void setStrength(int newStrength);
+  std::string attack();
 
-    Weapon getWeapon() const;
+  std::string useEnergySource();
 
-    std::string attack();
+  int getStrengthHeritant() const;
+  std::string getNameHeritant() const;
+  std::string getTypeHeritant() const;
 
-    std::string useEnergySource();
+  bool operator<=(const Transformer& comparable) const;
+  bool operator>=(const Transformer& comparable) const;
 
-    int getStrengthHeritant() const {
-        return strength;
-    }
-    std::string getNameHeritant() const {
-        return name;
-    }
-
-    bool operator<=(const Transformer& comparable) const;
-    bool operator>=(const Transformer& comparable) const;
-
-    std::string display() const;
-    friend std::ostream& operator<<(std::ostream& os, const Transformer& transformer);
+  std::string display() const;
+  friend std::ostream& operator<<(std::ostream& os,
+                                  const Transformer& transformer);
 };
 
 #endif
-
-

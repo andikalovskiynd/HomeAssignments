@@ -5,18 +5,18 @@
 
 #ifndef ENERGY_H
 #define ENERGY_H
-#include <string>
 #include <iostream>
+#include <string>
 
 class Energy {
-  private:
-    std::string sourceName;
-  public:
-    Energy(const std::string& sourceName);
-    std::string getSource();
+ private:
+  std::string sourceName;
 
-    friend std::ostream& operator<<(std::ostream& os, const Energy& energy);
+ public:
+  Energy(const std::string& sourceName);
+  std::string getSource();
+
+  friend std::ostream& operator<<(std::ostream& os, const Energy& energy);
 };
 
 #endif
-

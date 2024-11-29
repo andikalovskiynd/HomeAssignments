@@ -5,44 +5,38 @@
 
 #ifndef AUTOBOT_H
 #define AUTOBOT_H
-#include <string>
 #include <iostream>
+#include <string>
+
 #include "Transformer.h"
 
-class Autobot: public Transformer {
-  private:
-    std::string friendName;
-    int beauty;
+class Autobot : public Transformer {
+ private:
+  std::string friendName;
+  int beauty;
 
-  public:
-    Autobot();
-    Autobot(const std::string& name);
-    Autobot(const std::string& name, const std::string& type, int strength, Weapon& weapon, Energy* energy, const std::string friendName, int beauty);
+ public:
+  Autobot();
+  Autobot(const std::string& name);
+  Autobot(const std::string& name, const std::string& type, int strength,
+          Weapon& weapon, Energy* energy, const std::string friendName,
+          int beauty);
 
-    void transform() const override {
-        std::cout << "Autobot::transform called from " << getNameHeritant() << std::endl;
-    }
+  void transform() const override;
+  void openFire() const override;
+  void ulta() const override;
 
-    void openFire() const override {
-        std::cout << "Autobot::openFire called from " << getNameHeritant() << std::endl;
-    }
+  std::string getFriend() const;
+  void setFriend(const std::string newFriendName);
 
-    void ulta() const override {
-        std::cout << "Autobot::ulta called from " << getNameHeritant() << std::endl;
-    }
+  int getBeauty() const;
+  void setBeauty(int newBeauty);
 
-    std::string getFriend() const;
-    void setFriend(const std::string newFriendName);
+  bool operator<=(const Autobot& comparable) const;
+  bool operator>=(const Autobot& comparable) const;
 
-    int getBeauty() const;
-    void setBeauty(int newBeauty);
-
-    bool operator<=(const Autobot& comparable) const;
-    bool operator>=(const Autobot& comparable) const;
-
-    std::string display() const;
-    friend std::ostream& operator<<(std::ostream& os, const Autobot& autobot);
+  std::string display() const;
+  friend std::ostream& operator<<(std::ostream& os, const Autobot& autobot);
 };
 
 #endif
-

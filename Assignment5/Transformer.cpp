@@ -3,74 +3,88 @@
     Assignment5: 3 virtual methods, extended testing
  */
 
-#include <string>
-#include <iostream>
 #include "Transformer.h"
 
+#include <iostream>
+#include <string>
 
 Transformer::Transformer()
-    : name("Default"), type("Unknown"), strength(0), weapon(Weapon()), energy(nullptr) {}
+    : name("Default"),
+      type("Unknown"),
+      strength(0),
+      weapon(Weapon()),
+      energy(nullptr) {}
 
 Transformer::Transformer(const std::string& name)
-    : name(name), type("Unknown"), strength(0), weapon(Weapon()), energy(nullptr) {}
+    : name(name),
+      type("Unknown"),
+      strength(0),
+      weapon(Weapon()),
+      energy(nullptr) {}
 
 Transformer::Transformer(const std::string& name, const std::string& type)
     : name(name), type(type), strength(0), weapon(Weapon()), energy(nullptr) {}
 
-Transformer::Transformer(const std::string& name, const std::string& type, int strength, const Weapon& weapon, Energy* energy)
-    : name(name), type(type), strength(strength), weapon(weapon), energy(energy) {}
+Transformer::Transformer(const std::string& name, const std::string& type,
+                         int strength, const Weapon& weapon, Energy* energy)
+    : name(name),
+      type(type),
+      strength(strength),
+      weapon(weapon),
+      energy(energy) {}
 
-std::string Transformer::getName() const {
-    return name;
-}
-void Transformer::setName(std::string& newName) {
-    name = newName;
-}
+std::string Transformer::getName() const { return name; }
+void Transformer::setName(std::string& newName) { name = newName; }
 
-std::string Transformer::getType() const {
-    return type;
-}
-void Transformer::setType(std::string& newType) {
-    type = newType;
-}
+std::string Transformer::getType() const { return type; }
+void Transformer::setType(std::string& newType) { type = newType; }
 
-int Transformer::getStrength() const {
-    return strength;
-}
+int Transformer::getStrength() const { return strength; }
 
-void Transformer::setStrength(int newStrength) {
-    strength = newStrength;
-}
+void Transformer::setStrength(int newStrength) { strength = newStrength; }
 
-Weapon Transformer::getWeapon() const {
-    return weapon;
-}
+Weapon Transformer::getWeapon() const { return weapon; }
 
 std::string Transformer::attack() {
-    return "Attacking with " + weapon.getType();
+  return "Attacking with " + weapon.getType();
 }
 
 std::string Transformer::useEnergySource() {
-    return "Using energy source " + (energy ? energy->getSource() : "Unknown");
+  return "Using energy source " + (energy ? energy->getSource() : "Unknown");
 }
 
 bool Transformer::operator<=(const Transformer& other) const {
-    return this->strength <= other.strength;
+  return this->strength <= other.strength;
 }
 
 bool Transformer::operator>=(const Transformer& comparable) const {
-    return this->strength >= comparable.strength;
+  return this->strength >= comparable.strength;
 }
 
 std::string Transformer::display() const {
-    return "Transformer. Name: " + name +
-           ", Type: " + type +
-           ", Strength: " + std::to_string(strength) +
-           ", Weapon: " + weapon.display() +
-           ", Energy: " + (energy ? energy->getSource() : "None") + ")";
+  return "Transformer. Name: " + name + ", Type: " + type +
+         ", Strength: " + std::to_string(strength) +
+         ", Weapon: " + weapon.display() +
+         ", Energy: " + (energy ? energy->getSource() : "None") + ")";
 }
 
 std::ostream& operator<<(std::ostream& os, const Transformer& transformer) {
-    os << transformer.display();
-    return os;
+  os << transformer.display();
+  return os;
+}
+
+int Transformer::getStrengthHeritant() const { return strength; }
+std::string Transformer::getNameHeritant() const { return name; }
+std::string Transformer::getTypeHeritant() const { return type; }
+
+void Transformer::transform() const {
+  std::cout << "Transformer::transform called from " << name << std::endl;
+}
+
+void Transformer::openFire() const {
+  std::cout << "Transformer::openFire called from " << name << std::endl;
+}
+
+void Transformer::ulta() const {
+  std::cout << "Transformer::ulta called from " << name << std::endl;
 }
