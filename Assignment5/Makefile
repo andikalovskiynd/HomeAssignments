@@ -26,24 +26,24 @@ TEST_OBJ=$(TEST_SRC:.cpp=.o)
 default: test
 
 %.o: %.cpp $(DEPS)
-    $(CXX) -c -o $@ $< $(CCXFLAGS)
+	$(CXX) -c -o $@ $< $(CCXFLAGS)
 
 $(LIBPROJECT): $(OBJ)
-    $(A) $(AFLAGS) $@ $^
+	$(A) $(AFLAGS) $@ $^
 
 $(TESTPROJECT): $(LIBPROJECT) $(TEST_OBJ)
-    $(CXX) -o $@ $(TEST_OBJ) $(LIBPROJECT) $(LDXXFLAGS)
+	$(CXX) -o $@ $(TEST_OBJ) $(LIBPROJECT) $(LDXXFLAGS)
 
 test: $(TESTPROJECT)
-    ./$(TESTPROJECT)
+	./$(TESTPROJECT)
 
 all: $(LIBPROJECT) $(TESTPROJECT)
 
 .PHONY: clean
 clean:
-    rm -f *.o
+	rm -f *.o
 
 cleanall: clean
-    rm -f $(LIBPROJECT)
-    rm -f $(TESTPROJECT)
+	rm -f $(LIBPROJECT)
+	rm -f $(TESTPROJECT)
 
