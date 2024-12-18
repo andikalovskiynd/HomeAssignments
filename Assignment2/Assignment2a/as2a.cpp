@@ -1,6 +1,6 @@
 /*
     Andikalovskiy Nikita Dmitrievich st131335@spbu.ru
-    Home Assignment 2a
+    Home Assignment 2a: Programm opens binare file, finds it's size, makes array for it, reads file to this array and the turns it backwards. Then file is being rewrited to a new one.
 */
 
 #include <iostream>
