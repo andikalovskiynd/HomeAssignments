@@ -9,6 +9,6 @@ Programm opens binare file, finds it's size, makes array for it, reads file to t
 ## Build
 make
 ## Run
-./test-as2a
+./as2a
  
 

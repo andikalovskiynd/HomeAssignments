@@ -21,14 +21,14 @@ int main()
 
         std::size_t size = inputsize / sizeof(int);
 
-        for(std::size_t i = 0; i < size / 2; i++)
+        for(std::size_t i = 0; i < size / 2; ++i)
 
         {
             std::swap(Array[i], Array[size - 1 - i]);
         }
 
     std::ofstream outfile;
-    outfile.open("output", std::ios::binary | std::ios::in);
+    outfile.open("output", std::ios::binary | std::ios::out);
     outfile.write(reinterpret_cast<char*>(Array), inputsize);
     outfile.close();
 
