@@ -45,6 +45,6 @@ TEST(SpecializationTest, Int) {
 }
 
 TEST(SpecializationTest, Double) {
-    Class<double> classDouble(42.0, 5.0 {1.0f, 2.0f});
-    EXPECT_TRUE(classDouble.foo());
+    Class<double> classDouble(42.0, 5.0, {1.0f, 2.0f});
+    EXPECT_FALSE(classDouble.foo());
 }
