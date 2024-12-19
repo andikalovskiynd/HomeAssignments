@@ -10,47 +10,41 @@
 #include "TClass.h"
 
 TEST(Class1Test, TrueCase) {
-    Class1 obj;
-    std::vector<float> vector = {1.1f, 2.2f};
-    EXPECT_TRUE(obj.bar(1, vector));
+    Class<Class1> class1T(Class1(), 1, {1.1f, 2.2f});
+    EXPECT_TRUE(class1T.foo());
 }
 
 TEST(Class1Test, FalseCase) {
-    Class1 obj;
-    std::vector<float> vector = {1.1f, 2.2f};
-    EXPECT_FALSE(obj.bar(0, vector));
+    Class<Class1> class1T(Class1(), -1, {1.1f, 2.2f});
+    EXPECT_FALSE(class1T.foo());
 }
 
 TEST(Class2Test, TrueCase) {
-    Class2 obj;
-    std::vector<float> vector = {1.1f};
-    EXPECT_TRUE(obj.bar(0, vector));
+    Class<Class2> class2T(Class2(), 1, {1.1f});
+    EXPECT_TRUE(class2T.foo());
 }
 
 TEST(Class2Test, FalseCase) {
-    Class2 obj;
-    std::vector<float> vector = {};
-    EXPECT_FALSE(obj.bar(0, vector));
+    Class<Class2> class2T(Class2(), 1, {});
+    EXPECT_FALSE(class2T.foo());
 }
 
 TEST(Class3Test, TrueCase) {
-    Class3 obj;
-    std::vector<float> vector = {1.1f, 2.2f};
-    EXPECT_TRUE(obj.bar(-2, vector));
+    Class<Class3> class3T(Class3(), -1, {1.1f});
+    EXPECT_TRUE(class3T.foo());
 }
 
 TEST(Class3Test, FalseCase) {
-    Class3 obj;
-    std::vector<float> vector = {1.1f, 2.2f};
-    EXPECT_FALSE(obj.bar(-1, vector));
+    Class<Class3> class3T(Class3(), 1, {1.1f});
+    EXPECT_FALSE(class3T.foo());
 }
 
 TEST(SpecializationTest, Int) {
-    Class<int, Class2> obj(42, Class2(), 5, {});
-    EXPECT_TRUE(obj.foo());
+    Class<int> classInt(42, 5, {1.0f, 2.0f});
+    EXPECT_TRUE(classInt.foo());
 }
 
 TEST(SpecializationTest, Double) {
-    Class<double, Class3> obj(3.14, Class3(), -1, {1.1f});
-    EXPECT_FALSE(obj.foo());
+    Class<double> classDouble(42.0, 5.0 {1.0f, 2.0f});
+    EXPECT_TRUE(classDouble.foo());
 }
